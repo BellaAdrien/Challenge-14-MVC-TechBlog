@@ -9,7 +9,7 @@ const homeRoutes = require('./profileRoutes')
 //HTML endpoint is meant to present the web pages (VIEWS)
 //http://localhost:3001/
 router.use('/', homeRoutes);
-router.use('/profile', homeRoutes);
+router.use('/profile', profileRoutes);
 
 
 //API endpoint is meant to do CRUD (MODEL and Controller)

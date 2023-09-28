@@ -2,8 +2,8 @@ const router = require('express').Router();
 // const userRoutes = require('./userRoutes');
 // // const projectRoutes = require('./projectRoutes');
 const homeRoutes = require('./homeRoutes'); 
-// const profileRoutes = require('./profileRoutes');
-// const apiRoutes = require('./apiRoutes');
+const profileRoutes = require('./profileRoutes');
+ const apiRoutes = require('./apiRoutes');
 
 //http://localhost:3001/api/users
 // router.use('/users', userRoutes);
@@ -13,7 +13,7 @@ const homeRoutes = require('./homeRoutes');
 
 router.use('/', homeRoutes);
 
-// router.use('/profile', profileRoutes);
+ router.use('/profile', profileRoutes);
 
 router.use('/apiRoutes', apiRoutes);
 

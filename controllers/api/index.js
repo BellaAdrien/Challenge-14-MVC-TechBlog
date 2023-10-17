@@ -9,7 +9,7 @@ const profileRoutes = require('./profileRoutes');
 router.use('/users', userRoutes);
 
 //http://localhost:3001/api/posts
- router.use('/posts', postRoutes);
+ router.use('/post', postRoutes);
 
 router.use('/', homeRoutes);
 

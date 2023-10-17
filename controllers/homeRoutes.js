@@ -4,8 +4,18 @@ const withAuth = require('../utils/auth');
 
 //all html routes are doing get method is reading
 //http://localhost:3001/
-router.get('/', async (req, res) => {
+router.get('/all', async (req, res) => {
   try {
+    res.render('all',{logged_in: req.session.logged_in})
+  }catch (err) {
+    console.error(err)
+  }
+  router.get('/', async (req, res) => {
+
+  
+    res.render('homepage',{logged_in: req.session.logged_in});
+  });
+
     // Get all Posts and JOIN with user data
     const postData = await Post.findAll({
       include: [
@@ -20,17 +30,17 @@ router.get('/', async (req, res) => {
 //PostData is raw data, can't use raw data on handlebar template
     // Serialize data so the template can read it
     //take raw data and format it to json
-    const posts = postData.map((post) => Post.get({ plain: true }));
+//     const posts = postData.map((post) => Post.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      posts, 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     // Pass serialized data and session flag into template
+//     res.render('homepage', { 
+//       posts, 
+//       logged_in: req.session.logged_in 
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 
 //http://localhost:3001/Post/1
@@ -88,5 +98,5 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
-
+});
 module.exports = router;
